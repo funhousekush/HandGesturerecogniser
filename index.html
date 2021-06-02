@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Hand gesture recogniser</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+        <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+    
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body style="background-color: red;">
+        <center>
+            <h3 class="btn btn-warning heading"> Hand gesture app
+                <br>
+                <span>&#9994;</span>
+                <span>&#128076;</span>
+                <span>&#128075;</span>
+                <span>&#128070;</span>
+                <span>&#128072;</span>
+            </h3>
+            <p style="font-size: 40px;">Take a selfie below of an hand gesture</p>
+            <p style="font-size: 22px;">The model is trained to identify the folowing images :-
+                 <br>
+                <span>&#128070;</span>
+                <span>&#128071;</span>
+                <span>&#128076;</span>
+                <span>&#129304;</span>
+                <span>&#128077;</span>
+            </p>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <label>Webcam view-</label>
+                <div id="camera"></div>
+                <br><br>
+                <button onclick="take_snapshot();" class="btn btn-warning">Take snapshot</button>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <label>Prediction</label>
+                <p id="emoji_of_hand_gesture"></p>
+                <p id="text_of_hand_gesture"></p>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <label>Snapshot view-</label>
+                <div id="snapshot"></div>
+                <br><br>
+                <button onclick="identify_gesture();" class="btn btn-success">identify gesture</button>
+            </div>
+        </center>
+    </body>
+</html>
