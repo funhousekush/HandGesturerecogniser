@@ -24,3 +24,52 @@ function modelLoaded()
 {
     console.log("model Loaded")
 }
+
+function speak()
+{
+    var synth = window.speechSynthesis;
+    dialogue = "Prediction is " + prediction;
+    var utterThis = new SpeechSynthesisUtterance(dialogue);
+    synth.speak(utterThis);
+}
+
+function identify_gesture()
+{
+    img = document.getElementById("capture_image");
+    classifier.classify(img, gotResult);
+}
+
+function gotResult(error, result)
+{
+    if(error)
+    {
+        console.error(error);
+    }
+    else
+    {
+        console.log(result);
+        document.getElementById("text_of_hand_gesture").innerHTML = result[0].label;
+        prediction = result[0].label;
+        speak();
+        if(result[0] = "Amazing")
+        {
+            document.getElementById("emoji_of_hand_gesture").innerHTML = "&#128076;;";
+        }
+        if(result[0] = "Victory")
+        {
+            document.getElementById("emoji_of_hand_gesture").innerHTML = "&#128075;";
+        }
+        if(result[0] = "Cool")
+        {
+            document.getElementById("emoji_of_hand_gesture").innerHTML = "&#129304;";
+        }
+        if(result[0] = "Up")
+        {
+            document.getElementById("emoji_of_hand_gesture").innerHTML = "&#128070;";
+        }
+        if(result[0] = "down")
+        {
+            document.getElementById("emoji_of_hand_gesture").innerHTML = "&#128071;";
+        }
+    }
+}
